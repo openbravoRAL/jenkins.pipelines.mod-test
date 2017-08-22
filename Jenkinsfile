@@ -10,6 +10,10 @@ pipeline {
       steps {
         echo 'empty'
         library 'SharedLibrary'
+        script {
+          
+        }
+        
       }
     }
   }
