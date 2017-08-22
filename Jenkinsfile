@@ -21,10 +21,7 @@ pipeline {
     }
     stage("Run shared script \u2623") {
       steps {
-        script {
-            def helloworld = new sharedlibrary.HelloWorld()
-            println helloworld.say()
-        }
+        echo 'empty'
       }
     }
   }
