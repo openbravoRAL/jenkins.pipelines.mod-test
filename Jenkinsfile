@@ -11,8 +11,7 @@ pipeline {
         echo 'empty'
         library 'SharedLibrary'
         script {
-          
-          echo 'hello arbitrary pipeline'
+          sayHello 'a'
         }
         
       }
