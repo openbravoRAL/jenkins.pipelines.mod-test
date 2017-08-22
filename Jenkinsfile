@@ -1,5 +1,15 @@
-@Library("sharedLibrary") _
-examplePipeline {
-    projectName = "Project1"
-    serverDomain = "Project1 Server Domain"
+pipeline {
+  agent {
+    node {
+      label 'master'
+    }
+    
+  }
+  stages {
+    stage("Setup") {
+      steps {
+        echo 'empty'
+      }
+    }
+  }
 }
