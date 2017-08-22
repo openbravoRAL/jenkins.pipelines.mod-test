@@ -11,7 +11,8 @@ pipeline {
         echo 'empty'
         library 'SharedLibrary'
         script {
-          
+          def hello = new sharedlibrary.HelloWorld()
+          println hello.say()
         }
         
       }
