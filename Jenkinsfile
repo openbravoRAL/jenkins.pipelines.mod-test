@@ -12,6 +12,7 @@ pipeline {
         library 'SharedLibrary'
         script {
           
+          echo 'hello arbitrary pipeline'
         }
         
       }
