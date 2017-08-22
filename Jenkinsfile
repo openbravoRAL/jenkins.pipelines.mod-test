@@ -22,7 +22,7 @@ pipeline {
     stage("Run shared script \u2623") {
       steps {
         script {
-            def helloworld = new com.openbravo.HelloWorld()
+            def helloworld = new sharedlibrary.HelloWorld()
             println helloworld.say()
         }
       }
