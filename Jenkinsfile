@@ -6,9 +6,10 @@ pipeline {
     
   }
   stages {
-    stage("Setup") {
+    stage('Setup') {
       steps {
         echo 'empty'
+        library 'SharedLibrary'
       }
     }
   }
