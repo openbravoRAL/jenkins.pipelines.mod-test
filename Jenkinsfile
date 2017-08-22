@@ -16,5 +16,25 @@ pipeline {
         
       }
     }
+    stage('Clone repositories') {
+      steps {
+        parallel(
+          "01 ERP": {
+            script {
+              sayHello()
+            }
+            
+            
+          },
+          "10 Retail.pack": {
+            script {
+              sayHello()
+            }
+            
+            
+          }
+        )
+      }
+    }
   }
 }
