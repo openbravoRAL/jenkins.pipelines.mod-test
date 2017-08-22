@@ -8,10 +8,9 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        echo 'empty'
-        library 'SharedLibrary'
+        echo 'Setup'
         script {
-          sayHello()
+          sayHello('Setup')
         }
         
       }
@@ -19,21 +18,29 @@ pipeline {
     stage('Clone repositories') {
       steps {
         parallel(
-          "01 ERP": {
+          "01 erp": {
             script {
-              sayHello()
+              sayHello('erp')
             }
             
             
           },
-          "10 Retail.pack": {
+          "10 retail.pack": {
             script {
-              sayHello()
+              sayHello('retail.pack')
             }
             
             
           }
         )
+      }
+    }
+    stage('error') {
+      steps {
+        script {
+          sayHello('puzzle up')
+        }
+        
       }
     }
   }
