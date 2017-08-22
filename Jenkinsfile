@@ -6,10 +6,22 @@ pipeline {
     
   }
   stages {
+    stage('Dev') {
+      steps {
+        script {
+          echo pwd()
+          
+          def repo = 'ssh://hg@bitbucket.org/RafaOpenbravo/jenkins.pipelines.sharedlibrary'
+          checkout changelog: false, poll: false, scm: [$class: 'MercurialSCM', source: repo, clean: false, credentialsId: '', revision: "default", revisionType: "BRANCH"]
+        }
+        
+      }
+    }
     stage('Setup') {
       steps {
-        echo 'Setup'
+        echo '${\'Setups\'+\'aa\'}'
         script {
+          echo pwd()
           sayHello('Setup')
         }
         
@@ -35,7 +47,7 @@ pipeline {
         )
       }
     }
-    stage('error') {
+    stage('puzzle up') {
       steps {
         script {
           sayHello('puzzle up')
