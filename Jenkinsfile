@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'master'
+      label 'ci24.141'
     }
     
   }
@@ -11,8 +11,14 @@ pipeline {
         script {
           echo pwd()
           
-          def repo = 'ssh://hg@bitbucket.org/RafaOpenbravo/jenkins.pipelines.sharedlibrary'
-          checkout changelog: false, poll: false, scm: [$class: 'MercurialSCM', source: repo, clean: false, credentialsId: '', revision: "default", revisionType: "BRANCH"]
+          def repositoriesDir = 'repositories/' // move to environment
+          
+          dir(repositoriesDir) {
+            // deleteDir(). Repo dir is never cleaned up because repos are cleaned
+            def repoName = 'org.openbravo.base.axis2'
+            def repo = 'https://code.openbravo.com/erp/mods/' + repoName
+            cloneRepo(repo)
+          }
         }
         
       }
